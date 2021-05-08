@@ -5,35 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
     <title>CODE QUIZ</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="reset.css"/>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    
   </head>
 
   <body>
        <a href ...>View High Scores</a>
     
        <header>
-        <p id="welcome">Welcome to the Coding Quiz!</p>   
+        <p id="welcome">Welcome to the Coding Quiz!
+          <br>
+         Instructions: The quiz starts at 10 seconds, and a wrong answer reduces your time by 2 seconds. After all questions are answered, time
+            remaining is your final score. If time runs out before all questions are answered, you lose :(
+          </p>
+         
         
         </header>
 
     <div class="container">   
       <ul id= startTime1>
         <li><button id="start">Start Button</button></li>
-        <li><h4>timer placeholder</h4> <span id="timer">100</span></li>
+        <li><span id="timer"></span></li>
       </ul>
       
-      <p class="question">First Question placeholder</p>
-              
+      <div id="question"> <!-- question displays here-->
+      </div>
               
              
       <section id="options3">
     
             <ul>
-                <li>First Option</li>
+                <!-- <li>First Option</li>
                 <li>Second Option</li>
                 <li>Third Option</li>
-                <li>Fourth Option</li>
+                <li>Fourth Option</li> -->
             </ul>
       </section>
 
@@ -57,13 +63,10 @@
 <br>
 
 
-      [] log and store whether answer is true or false,
-      [] subtract 2 seconds for each wrong answer.
-      [] after questions answered, or time=0, log total score(time left, or You Lose?).
-
       
+    
 
-
-
-    <script src="./script.js"></script>
   </body>
+
+  <script src="script.js"></script>
+  </html>

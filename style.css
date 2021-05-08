@@ -30,7 +30,7 @@ button {
 
 
 #welcome{
-    font-size: 50px;
+    font-size: 30px;
 }
 
 ul {
@@ -45,6 +45,7 @@ ul {
 
 #question {
     align-items:center;
+    
 }
 
 h4 {
@@ -63,7 +64,8 @@ h4 {
 
 
 
-#options3 {
+#options3 ul {
+    
     display:inline-block;
     border-style: solid;
     border-color:aqua;
@@ -87,3 +89,6 @@ h4 {
     display:inline;
 }
 
+.hide {
+    display: none;
+}
