@@ -2,9 +2,10 @@
 var timeLeft = 30;
 var displayMessage = 'Game Over';
 var promptIndex = 0
+//var savedScore = document.querySelector("");
 //var countdown = start();
 //variables to reference DOM manipulation
-
+var nameInput = document.querySelector("#name");
 var startBtn = document.getElementById("start");
 var timerEl = document.getElementById("timer");
 var questionEl = document.getElementById('question');
@@ -12,6 +13,10 @@ var questionEl = document.getElementById('question');
 //var quizQuestions = document.getElementById();
 // var count  = localStorage.getItem("count");
 
+let score = document.getElementById("")
+
+
+let timeInterval;
 
 
 //arrays holding questions, choices, and correct answers
@@ -96,8 +101,8 @@ function handleAnswer(questionIndex, userAnswer) {
     quizAnswers[questionIndex] = userAnswer;
     if (correctAnswer !== userAnswer) {
         console.log("wrong answer")
-        timeLeft --;
-        timeLeft --; 
+        timeLeft -=2;
+         
         console.log("time penalty " + timeLeft)
     }
     
@@ -106,11 +111,18 @@ function handleAnswer(questionIndex, userAnswer) {
         //have tried == and ===...
         //stop timer = final score -end game...
         console.log("final score " + timeLeft)
-        return timeLeft;
+        // Show final score on screen, ask to save high scores
+        clearInterval(timeInterval);
+        //return timeLeft;
+        window.alert("Your score was " + timeLeft);
+        displayMessage("game over");
     }
     currentQuestion++;
     displayQuestion();
 }
+
+
+
 
 startBtn.addEventListener("click", function() {
     start()
@@ -118,17 +130,20 @@ startBtn.addEventListener("click", function() {
 
 
 function displayMessage() {
-    timeEl.textContent = "Game Over";
-    var imgEl = document.createElement("img");
-    imgEl.setAttritbute("src", " ");
-    mainEl.appendChild(imgEl);
-}
+     document.getElementById("question").innerHTML = "Game Over";
+
+
+//     timeEl.textContent = "Game Over";
+//     var imgEl = document.createElement("img");
+//     imgEl.setAttritbute("src", " ");
+//     mainEl.appendChild(imgEl);
+ }
 
 // timer
 function countdown() {
     //var timeLeft = 10
 
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         timerEl.textContent = timeLeft + ' time remaining';
         if (timeLeft === 0) {
            clearInterval(timeInterval);
@@ -144,26 +159,45 @@ function countdown() {
     }, 1000);
 }
 
+// let saveBtn;
+// let highScore;
 
-
-// button
-// saveButton.addEventListener("click", function(event) {
+// //  Save button
+ //saveBtn.addEventListener("click", function() {
 //     var finalScore = {
-//         player: player.value,
+//         name: player.value,
 //         score: finalScore.value,
-//         comment: comment.value.trim()
-//     };
-//     localStorage.setItem("finalScore", JSON.stringify(finalScore));
+////         //comment: comment.value.trim()
+// };
+//     localStorage.setItem("score", JSON.stringify(finalScore));
 //     renderMessage(); 
 // });
 
+// var savedScore = {
+//       //name: name.value,
+//       //"score": finalScore.value,
+//       "playerName": nameInput.value,
+//       //comment: comment.value.trim()
+//     };
+
+
+
+saveBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    
+    console.log("timeLeft");
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
+    renderMessage();
+    
+    });
+
+//console.log(JSON.parse(localStorage.getItem("finalSCore")));
 
 
 
 
 
 
-
-// store scores from game
-// localStorage.setItem("highScores", JSON.stringify(FinalScore));
-// renderMessage();
+// var finalScore = {  };
+// localStorage.setItem('finalScore', JSON.stringify(finalScore));
